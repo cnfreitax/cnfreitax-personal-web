@@ -1,9 +1,12 @@
 import * as S from './styles'
+import { useRouter } from 'next/router'
 
 export const PostContent = () => {
+  const router = useRouter()
+
   return (
     <S.Content>
-      <S.Title>post title</S.Title>
+      <S.Title onClick={() => router.back()}>post title</S.Title>
 
       <S.PostContent>
         <p>

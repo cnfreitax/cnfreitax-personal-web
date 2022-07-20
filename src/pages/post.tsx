@@ -3,7 +3,7 @@ import { WithWrapper } from 'components/WithWrapper'
 
 const Post = () => {
   return (
-    <WithWrapper hasHeader justTitle>
+    <WithWrapper justTitle>
       <PostContent />
     </WithWrapper>
   )

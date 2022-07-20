@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { getFontSize, getPaletteColor } from 'utils/handleThemeProperty'
 
 export const Wrapper = styled.main`
   width: 100%;
@@ -31,11 +32,17 @@ export const PostBox = styled.article`
   }
 `
 
+export const PostContent = styled.div`
+  margin-top: 24px;
+  line-height: 26px;
+  font-size: ${getFontSize('textContent')};
+`
+
 export const PostTile = styled.span`
-  font-size: ${(props) => props.theme.title};
+  font-size: ${getFontSize('title')};
   font-weight: 900;
   letter-spacing: 1.2px;
-  color: var(--pink);
+  color: ${getPaletteColor('pink')};
 `
 
 export const PostPreView = styled.p`
@@ -48,5 +55,5 @@ export const PostPreView = styled.p`
   -webkit-box-orient: vertical;
   margin-top: 5px;
   letter-spacing: 0.8px;
-  font-size: ${(props) => props.theme.paragraph};
+  font-size: ${getFontSize('paragraph')};
 `

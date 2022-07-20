@@ -1,10 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
-  :root {
-    --pink: #ad72a0
-  }
-
   * {
     margin: 0;
     padding: 0;

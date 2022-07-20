@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { getFontSize } from 'utils/handleThemeProperty'
 
 export const Header = styled.header`
   display: flex;
@@ -8,7 +9,7 @@ export const Header = styled.header`
 
 export const HeaderDescription = styled.div`
   text-align: start;
-  font-size: ${(props) => props.theme.textContent};
+  font-size: ${getFontSize('textContent')};
   margin-top: 8px;
   margin-top: 18px;
 `
@@ -21,7 +22,7 @@ export const HeaderContent = styled.div`
 
 export const Title = styled.h1`
   margin: 0;
-  font-size: ${(props) => props.theme.heading};
+  font-size: ${getFontSize('heading')};
   font-weight: 900;
   letter-spacing: 3px;
 `
@@ -29,5 +30,5 @@ export const Title = styled.h1`
 export const Subtitle = styled.small`
   color: #77c1e4;
   font-weight: bold;
-  font-size: ${(props) => props.theme.small};
+  font-size: ${getFontSize('small')};
 `

@@ -14,10 +14,12 @@
     "generate": "yarn plop --plopfile ./generators/plopfile.js"
   },
   "dependencies": {
+    "@styled-system/theme-get": "^5.1.2",
     "next": "10.2.0",
     "react": "18.2.0",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.0",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",
@@ -30,6 +32,8 @@
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.5",
     "@types/styled-components": "^5.1.9",
+    "@types/styled-system": "^5.1.15",
+    "@types/styled-system__theme-get": "^5.0.2",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
     "@typescript-eslint/parser": "^4.22.1",
     "babel-loader": "^8.2.2",
