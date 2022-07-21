@@ -1,5 +1,11 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { getFontSize, getPaletteColor } from 'utils/handleThemeProperty'
+
+const visibleAnimation = keyframes`
+  0% { opacity: 0 }
+  50% { opacity: 0.5 }
+  100% { opacity: 1 }
+`
 
 export const Wrapper = styled.main`
   width: 100%;
@@ -26,8 +32,12 @@ export const PostBox = styled.article`
 
   &:hover {
     .span-see-more {
-      opacity: 1;
-      transition: 0.8s opacity;
+      -moz-animation: ${visibleAnimation} 1.2s ease-in 1.2s forwards;
+      -webkit-animation: ${visibleAnimation} 1.2s ease-in 1.2s forwards;
+      -o-animation: ${visibleAnimation} 1.2s ease-in 1.2s forwards;
+      animation: ${visibleAnimation} 1.2s ease-in 1.2s forwards;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
     }
   }
 `
