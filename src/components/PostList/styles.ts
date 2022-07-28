@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components'
+import { PostListType } from 'interfaces'
+import styled, { css, keyframes } from 'styled-components'
 import { getFontSize, getPaletteColor } from 'utils/handleThemeProperty'
 
 const visibleAnimation = keyframes`
@@ -15,7 +16,8 @@ export const Wrapper = styled.main`
   justify-content: center;
 `
 
-export const PostBox = styled.article`
+export const PostBox = styled.article<Pick<PostListType, 'justNewPost'>>`
+  position: relative;
   width: 100%;
   text-align: start;
   cursor: pointer;
@@ -32,14 +34,38 @@ export const PostBox = styled.article`
 
   &:hover {
     .span-see-more {
-      -moz-animation: ${visibleAnimation} 1.2s ease-in 1.2s forwards;
-      -webkit-animation: ${visibleAnimation} 1.2s ease-in 1.2s forwards;
-      -o-animation: ${visibleAnimation} 1.2s ease-in 1.2s forwards;
-      animation: ${visibleAnimation} 1.2s ease-in 1.2s forwards;
+      -moz-animation: ${visibleAnimation} 1s ease-in 1s forwards;
+      -webkit-animation: ${visibleAnimation} 1s ease-in 1s forwards;
+      -o-animation: ${visibleAnimation} 1s ease-in 1s forwards;
+      animation: ${visibleAnimation} 1s ease-in 1s forwards;
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
     }
   }
+
+  ${({ justNewPost }) =>
+    justNewPost &&
+    css`
+      &:after {
+        content: 'new';
+        text-transform: uppercase;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: ${getFontSize('small')};
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 12px;
+        width: 100%;
+        max-width: 70px;
+        height: 30px;
+        background-color: ${getPaletteColor('pink')};
+      }
+    `}
 `
 
 export const PostContent = styled.div`

@@ -2,20 +2,22 @@ import * as S from './styles'
 import Link from 'next/link'
 import { PostListType } from 'interfaces'
 
-export const PostList = ({ posts }: PostListType) => {
+export const PostList = ({ posts, justNewPost }: PostListType) => {
+  const formaPostPreview = justNewPost ? posts.slice(0, 0) : posts
+
   return (
     <S.Wrapper>
-      {posts.map((post) => (
+      {formaPostPreview.map((post) => (
         <Link
           href={{
-            pathname: '/post/[id]',
+            pathname: '/posts/[id]',
             query: {
               id: post.id
             }
           }}
           key={post.id}
         >
-          <S.PostBox>
+          <S.PostBox justNewPost>
             <div>
               <S.PostTile>{post.title}</S.PostTile>
               <span className="span-see-more">clique para ver mais</span>

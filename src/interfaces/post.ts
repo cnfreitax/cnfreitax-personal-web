@@ -7,4 +7,5 @@ export type PostType = {
 
 export type PostListType = {
   posts: PostType[]
+  justNewPost?: boolean
 }
