@@ -1,5 +1,16 @@
-import styled from 'styled-components'
-import { getFontSize } from 'utils/handleThemeProperty'
+import styled, { css, keyframes } from 'styled-components'
+import {
+  getFontSize,
+  getMediaQuery,
+  getPaletteColor
+} from 'utils/handleThemeProperty'
+
+const visibleAnimation = keyframes`
+  25% { opacity: 0.25 }
+  50% { opacity: 0.5 }
+  75% { opacity: 0.75 }
+  100% { opacity: 1 }
+`
 
 export const Header = styled.header`
   display: flex;
@@ -28,7 +39,55 @@ export const Title = styled.h1`
 `
 
 export const Subtitle = styled.small`
-  color: #77c1e4;
+  color: ${getPaletteColor('base')};
   font-weight: bold;
   font-size: ${getFontSize('small')};
+
+  a {
+    text-decoration: none;
+    color: ${getPaletteColor('ligthBlue')};
+  }
+`
+
+export const NavBarMenu = styled.nav`
+  display: flex;
+  margin-top: 42px;
+  align-self: center;
+  justify-content: space-between;
+  width: 100%;
+  opacity: 0;
+
+  -moz-animation: ${visibleAnimation} 1s ease-in 1.2s forwards;
+  -webkit-animation: ${visibleAnimation} 1s ease-in 1.2s forwards;
+  -o-animation: ${visibleAnimation} 1s ease-in 1.2s forwards;
+  animation: ${visibleAnimation} 1s ease-in 1.2s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  ${getMediaQuery('large')} {
+    max-width: 60%;
+  }
+`
+type NavBarType = {
+  selected?: boolean
+}
+
+export const NavBarOption = styled.button<NavBarType>`
+  position: relative;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  color: ${getPaletteColor('base')};
+  letter-spacing: 2px;
+  font-size: ${getFontSize('textContent')};
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  ${({ selected }) =>
+    selected &&
+    css`
+      color: ${getPaletteColor('pink')};
+    `}
 `

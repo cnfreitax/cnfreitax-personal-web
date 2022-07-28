@@ -13,12 +13,13 @@ export const WithWrapper = ({
   children,
   hasHeader,
   hasFooter,
-  justTitle
+  justTitle,
+  hasNavBar
 }: WithWrapperType) => {
   return (
     <S.Wrapper>
       <S.Content>
-        {hasHeader && <Header justTitle={justTitle} />}
+        {hasHeader && <Header justTitle={justTitle} hasNavBar={hasNavBar} />}
         {children}
         {hasFooter && <Footer />}
       </S.Content>
